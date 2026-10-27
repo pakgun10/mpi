@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MPI Bilangan Bulat — Matematika Kelas 7 Semester 1</title>
+<meta name="description" content="Media Pembelajaran Interaktif Bilangan Bulat untuk Matematika SMP Kelas 7 Semester 1, berdasarkan ATP MGMP Matematika SMP Kabupaten Lampung Tengah 2026/2027.">
+<link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+<div class="wrap">
+<p class="small"><a href="../../../index.html">&larr; Portal MPI</a> &middot; <a href="../index.html">&larr; Kelas 7 Semester 1</a> &middot; <a href="../../../atp/kelas-7/index.html">ATP Kelas 7</a></p>
+
+<header class="hero">
+  <p class="eyebrow">MPI Matematika SMP &bull; Fase D</p>
+  <h1>Bilangan Bulat</h1>
+  <p>Bilangan positif, nol, dan negatif &mdash; untuk membaca suhu, ketinggian, dan uang saku dengan benar.</p>
+  <div class="chips">
+    <span class="chip">Kelas 7 &bull; Semester 1</span>
+    <span class="chip">TP B.1 &amp; B.2</span>
+    <span class="chip">Alokasi materi: 18 JP</span>
+    <span class="chip">Kurikulum Merdeka &bull; Pembelajaran Mendalam</span>
+  </div>
+</header>
+
+<nav class="stage-nav" aria-label="Navigasi tahap belajar">
+  <a href="#memahami">1 &bull; Memahami</a>
+  <a href="#mengaplikasi">2 &bull; Mengaplikasi</a>
+  <a href="#merefleksi">3 &bull; Merefleksi</a>
+  <a href="#panel-guru">Panel Guru</a>
+  <a href="#atp">Lampiran ATP</a>
+</nav>
+
+<section class="card" aria-labelledby="tujuan">
+  <p class="stage">Mulai dari sini</p>
+  <h2 id="tujuan">Setelah belajar ini, kamu dapat &hellip;</h2>
+  <ol>
+    <li><strong>Menjelaskan, menyatakan, membandingkan, mengurutkan, dan menentukan hasil operasi hitung</strong> bilangan bulat (penjumlahan, pengurangan, perkalian, dan pembagian). <span class="muted">(TP B.1)</span></li>
+    <li><strong>Menyelesaikan permasalahan sehari-hari yang melibatkan bilangan bulat</strong>, termasuk penguatan literasi finansial. <span class="muted">(TP B.2)</span></li>
+  </ol>
+  <p class="small muted">Rumusan TP lengkap dan tabel ATP ada di Panel Guru dan Lampiran ATP di bawah. Jawaban latihan dan refleksimu hanya tersimpan di perangkatmu sendiri, tidak dikirim ke mana pun, karena MPI ini tanpa login.</p>
+</section>
+
+<section class="card" id="memahami">
+  <p class="stage">Tahap 1 &bull; Memahami</p>
+  <h2>Di mana bilangan negatif itu hidup?</h2>
+  <p>Bilangan bulat itu &hellip; , &minus;3, &minus;2, &minus;1, 0, 1, 2, 3, &hellip; Bilangan di sebelah kiri nol bernilai negatif, di sebelah kanan nol bernilai positif. Nol bukan positif, bukan negatif.</p>
+  <div class="grid3">
+    <div class="callout"><strong>🌡️ Suhu</strong><br>Suhu malam &minus;2&deg;C artinya 2 derajat di bawah nol.</div>
+    <div class="callout"><strong>🏢 Gedung</strong><br>Lantai parkir &minus;1 dan &minus;2 ada di bawah lantai dasar (0).</div>
+    <div class="callout"><strong>💰 Uang</strong><br>Utang Rp10.000 bisa ditulis &minus;10.000, sedangkan tabungan Rp10.000 ditulis 10.000.</div>
+  </div>
+
+  <h3>1. Jelajahi garis bilangan</h3>
+  <p class="small muted">Geser titiknya, lalu perhatikan bilangan, lawannya, dan jaraknya dari nol.</p>
+  <label for="numRange">Pilih bilangan: <span id="numLabel">&minus;3</span></label>
+  <input type="range" id="numRange" min="-10" max="10" step="1" value="-3" aria-label="Pilih bilangan pada garis bilangan">
+  <div class="numline"><span class="marker" id="numMarker"></span></div>
+  <div class="ticks"><span>&minus;10</span><span>&minus;5</span><span>0</span><span>5</span><span>10</span></div>
+  <div class="center">
+    <button type="button" id="numMinus">&minus; 1</button>
+    <button type="button" id="numPlus">+ 1</button>
+  </div>
+  <div class="result" id="numResult"></div>
+  <p class="small"><strong>Coba pikirkan:</strong> mengapa &minus;3 dan 3 jaraknya sama dari nol, tetapi nilainya berlawanan? Tuliskan jawabanmu di buku, lalu lanjutkan.</p>
+
+  <h3>2. Membandingkan dua bilangan</h3>
+  <p>Aturannya sederhana: <strong>bilangan yang lebih ke kanan pada garis bilangan nilainya lebih besar</strong>. Jadi &minus;1 &gt; &minus;5, meskipun 5 lebih besar dari 1.</p>
+  <label for="cmpA">Bilangan pertama</label>
+  <input type="number" id="cmpA" value="-4" min="-50" max="50">
+  <label for="cmpB">Bilangan kedua</label>
+  <input type="number" id="cmpB" value="3" min="-50" max="50">
+  <p><button type="button" id="cmpBtn">Bandingkan</button></p>
+  <div class="result hidden" id="cmpResult"></div>
+
+  <h3>3. Mengurutkan dari kecil ke besar</h3>
+  <p class="small muted">Tekan tombol “Acak”, lalu klik bilangan-bilangannya secara berurutan dari yang terkecil.</p>
+  <p><button type="button" id="orderNew">Acak 5 Bilangan</button> <button type="button" class="secondary" id="orderReset">Ulangi</button></p>
+  <div id="orderPool"></div>
+  <p class="small">Urutan pilihanmu: <strong id="orderChosen">—</strong></p>
+  <div class="result hidden" id="orderResult"></div>
+
+  <h3>4. Aturan operasi hitung, dalam satu pandangan</h3>
+  <table>
+    <tr><th>Operasi</th><th>Aturannya</th><th>Contoh</th></tr>
+    <tr><td>Penjumlahan tanda sama</td><td>Jumlahkan, tandanya mengikuti.</td><td>(&minus;4) + (&minus;3) = &minus;7</td></tr>
+    <tr><td>Penjumlahan tanda beda</td><td>Kurangkan yang kecil dari yang besar, tandanya mengikuti yang jaraknya lebih jauh dari nol.</td><td>(&minus;7) + 12 = 5</td></tr>
+    <tr><td>Pengurangan</td><td>Ubah jadi penjumlahan dengan lawan pengurangnya: a &minus; b = a + (&minus;b).</td><td>5 &minus; (&minus;3) = 5 + 3 = 8</td></tr>
+    <tr><td>Perkalian &amp; pembagian</td><td>Tanda sama &rarr; positif. Tanda beda &rarr; negatif.</td><td>(&minus;6) &times; 4 = &minus;24; (&minus;24) : (&minus;4) = 6</td></tr>
+  </table>
+
+  <h3>5. Kalkulator langkah</h3>
+  <p class="small muted">Masukkan dua bilangan dan operasinya. Perhatikan langkahnya, bukan hanya hasilnya.</p>
+  <label for="calcA">Bilangan pertama</label>
+  <input type="number" id="calcA" value="-7">
+  <label for="calcOp">Operasi</label>
+  <select id="calcOp">
+    <option value="+">Penjumlahan (+)</option>
+    <option value="-">Pengurangan (&minus;)</option>
+    <option value="*">Perkalian (&times;)</option>
+    <option value="/">Pembagian (:)</option>
+  </select>
+  <label for="calcB">Bilangan kedua</label>
+  <input type="number" id="calcB" value="12">
+  <p><button type="button" id="calcBtn">Hitung dengan Langkah</button></p>
+  <div class="result hidden" id="calcResult"></div>
+</section>
+
+<section class="card" id="mengaplikasi">
+  <p class="stage">Tahap 2 &bull; Mengaplikasi</p>
+  <h2>Pakai bilangan bulat untuk menyelesaikan masalah</h2>
+
+  <h3>Contoh soal — tekan “Lihat Pembahasan” setelah kamu mencoba</h3>
+  <div>
+    <p><strong>Contoh 1.</strong> Hitunglah &minus;7 + 12 &minus; 5.</p>
+    <p><button type="button" class="secondary" data-toggle="pb1" aria-expanded="false">Lihat Pembahasan</button></p>
+    <div class="result hidden" id="pb1">&minus;7 + 12 = 5, karena 12 lebih jauh dari nol daripada &minus;7 dan bertanda positif. Lalu 5 &minus; 5 = 0. <strong>Jawaban: 0.</strong></div>
+  </div>
+  <div>
+    <p><strong>Contoh 2.</strong> Suhu pagi hari di sebuah kota adalah &minus;2&deg;C. Pada siang hari suhu naik 9&deg;C. Berapa suhu siang hari?</p>
+    <p><button type="button" class="secondary" data-toggle="pb2" aria-expanded="false">Lihat Pembahasan</button></p>
+    <div class="result hidden" id="pb2">Naik artinya ditambah: &minus;2 + 9 = 7. <strong>Jawaban: 7&deg;C.</strong></div>
+  </div>
+  <div>
+    <p><strong>Contoh 3 (literasi finansial).</strong> Dita menabung Rp80.000. Ia membeli alat tulis Rp45.000, lalu menerima uang saku Rp25.000. Berapa saldo Dita sekarang?</p>
+    <p><button type="button" class="secondary" data-toggle="pb3" aria-expanded="false">Lihat Pembahasan</button></p>
+    <div class="result hidden" id="pb3">80.000 &minus; 45.000 = 35.000. Lalu 35.000 + 25.000 = 60.000. <strong>Jawaban: Rp60.000.</strong> Membeli mengurangi saldo, menerima uang menambah saldo.</div>
+  </div>
+
+  <h3>Latihan mandiri — 5 soal acak</h3>
+  <p class="small muted">Kerjakan dulu di buku atau di kepala, tulis jawabanmu, lalu tekan “Periksa Semua”. Soal pembagian selalu menghasilkan bilangan bulat.</p>
+  <p><button type="button" id="quizNew">Buat 5 Soal Baru</button> <button type="button" class="secondary" id="quizCheck">Periksa Semua</button></p>
+  <div id="quizBox"></div>
+  <div class="result hidden" id="quizScore"></div>
+
+  <h3>Simulasi dompetku (literasi finansial)</h3>
+  <p class="small muted">Ini latihan B.2: pemasukan menambah saldo, pengeluaran mengurangi saldo. Saldo negatif artinya kamu berutang.</p>
+  <label for="walletStart">Saldo awal (Rp)</label>
+  <input type="number" id="walletStart" value="50000" min="0" step="1000">
+  <p><button type="button" id="walletSet">Mulai dengan Saldo Ini</button></p>
+  <label for="walletType">Jenis transaksi</label>
+  <select id="walletType">
+    <option value="in">Pemasukan (+) — misalnya uang saku, hasil menabung</option>
+    <option value="out">Pengeluaran (&minus;) — misalnya jajan, membeli alat tulis</option>
+  </select>
+  <label for="walletAmount">Jumlah (Rp)</label>
+  <input type="number" id="walletAmount" value="10000" min="0" step="1000">
+  <label for="walletNote">Keterangan (opsional)</label>
+  <input type="text" id="walletNote" placeholder="Contoh: membeli buku">
+  <p><button type="button" id="walletAdd">Tambah Transaksi</button></p>
+  <div class="result" id="walletResult">Saldo sekarang: <strong>Rp50.000</strong></div>
+  <ul id="walletList" class="small"></ul>
+</section>
+
+<section class="card" id="merefleksi">
+  <p class="stage">Tahap 3 &bull; Merefleksi</p>
+  <h2>Apa yang sudah kamu kuasai?</h2>
+  <p>Centang dengan jujur. Tidak ada nilai di sini, hanya peta untuk belajar berikutnya.</p>
+  <div>
+    <label><input type="checkbox" class="selfcheck"> Saya bisa menjelaskan arti bilangan negatif dengan contoh sehari-hari.</label>
+    <label><input type="checkbox" class="selfcheck"> Saya bisa membandingkan dan mengurutkan bilangan bulat.</label>
+    <label><input type="checkbox" class="selfcheck"> Saya bisa menghitung penjumlahan, pengurangan, perkalian, dan pembagian bilangan bulat.</label>
+    <label><input type="checkbox" class="selfcheck"> Saya bisa menyelesaikan masalah uang (pemasukan dan pengeluaran).</label>
+  </div>
+  <p><button type="button" id="reflectBtn">Lihat Pesan Refleksiku</button></p>
+  <div class="result hidden" id="reflectResult"></div>
+  <label for="reflect1">Hal yang paling membantuku memahami bilangan bulat hari ini adalah &hellip;</label>
+  <textarea id="reflect1" rows="3" placeholder="Tuliskan dengan bahasamu sendiri."></textarea>
+  <label for="reflect2">Bagian yang masih ingin kulatih lagi adalah &hellip;</label>
+  <textarea id="reflect2" rows="3" placeholder="Tuliskan dengan bahasamu sendiri."></textarea>
+  <p class="small muted">Tulisanmu hanya ada di perangkatmu dan tidak dikirim ke mana pun.</p>
+  <div class="callout">
+    <strong>Dimensi Profil Lulusan yang dilatih di materi ini:</strong>
+    <ul>
+      <li><strong>Penalaran Kritis</strong> — membandingkan, mengurutkan, dan memutuskan tanda hasil operasi.</li>
+      <li><strong>Komunikasi</strong> — menjelaskan arti bilangan negatif dan langkah penyelesaian dengan bahasamu.</li>
+      <li><strong>Kemandirian</strong> — mengerjakan latihan mandiri dan menilai sendiri pemahamanmu di tahap refleksi.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="card" id="panel-guru">
+  <p class="stage">Untuk Guru &bull; Panel ini bisa dibuka dan ditutup</p>
+  <h2>Panel Guru</h2>
+  <p class="small muted">Bagian ini bukan untuk dinilai siswa. Gunakan untuk menyiapkan dan memandu pembelajaran di kelas.</p>
+  <details>
+    <summary>Identitas dan identifikasi</summary>
+    <p><strong>Mata pelajaran:</strong> Matematika &bull; <strong>Fase:</strong> D &bull; <strong>Kelas:</strong> 7 &bull; <strong>Semester:</strong> 1 &bull; <strong>Materi:</strong> Bilangan Bulat &bull; <strong>Alokasi materi (distribusi):</strong> 18 JP &bull; <strong>Tahun pelajaran:</strong> 2026/2027.</p>
+    <p><strong>Karakteristik murid:</strong> murid baru bertransisi dari SD, masih kuat pada konteks konkret. Bilangan negatif perlu dijembatani lewat suhu, lantai gedung, dan uang sebelum simbol abstrak.</p>
+    <p><strong>Karakteristik materi:</strong> konsep tanda dan lawan bilangan adalah fondasi aljabar. Kesalahan umum: mengira &minus;5 lebih besar dari &minus;1, dan lupa mengubah pengurangan menjadi penjumlahan dengan lawan.</p>
+    <p><strong>Tujuan Pembelajaran (verbatim ATP):</strong><br>
+    B.1 — Menjelaskan, menyatakan, membandingkan, mengurutkan, dan menentukan hasil operasi hitung (penjumlahan, pengurangan, perkalian, dan pembagian) bilangan bulat.<br>
+    B.2 — Menyelesaikan permasalahan keseharian yang melibatkan konsep bilangan bulat termasuk berkaitan dengan penguatan literasi finansial.</p>
+  </details>
+  <details>
+    <summary>Kerangka Pembelajaran Mendalam</summary>
+    <ul>
+      <li><strong>Prinsip:</strong> Berkesadaran (tujuan dan cek diri eksplisit) &bull; Bermakna (konteks suhu, gedung, dan uang) &bull; Menggembirakan (eksplorasi garis bilangan, permainan urutan, dan simulasi dompet).</li>
+      <li><strong>Dimensi Profil Lulusan yang dipilih:</strong> Penalaran Kritis, Komunikasi, Kemandirian.</li>
+      <li><strong>Praktik pedagogis:</strong> eksplorasi terbimbing, tanya jawab, latihan mandiri dengan umpan balik langsung, dan refleksi.</li>
+      <li><strong>Lingkungan pembelajaran:</strong> kelas dengan proyektor/HP siswa, diskusi berpasangan saat membandingkan dan mengurutkan.</li>
+      <li><strong>Pemanfaatan digital:</strong> MPI ini, satu berkas, tanpa login dan tanpa penyimpanan nilai.</li>
+      <li><strong>Kemitraan:</strong> orang tua/wali diajak mendiskusikan contoh literasi finansial di rumah (uang saku dan tabungan), tanpa mengumpulkan data keuangan keluarga.</li>
+    </ul>
+  </details>
+  <details>
+    <summary>Langkah pembelajaran (pendahuluan – inti – penutup)</summary>
+    <p><strong>Pendahuluan:</strong> apersepsi suhu/utang, sampaikan tujuan B.1 dan B.2, asesmen awal lisan: “Mana yang lebih besar, &minus;1 atau &minus;5? Mengapa?”</p>
+    <p><strong>Inti — Memahami:</strong> eksplorasi garis bilangan, membandingkan, mengurutkan, dan aturan operasi.<br>
+    <strong>Inti — Mengaplikasi:</strong> contoh soal dengan pembahasan, latihan 5 soal acak, dan simulasi dompet.<br>
+    <strong>Penutup — Merefleksi:</strong> cek diri, refleksi tertulis singkat, dan tindak lanjut: murid yang belum tuntas mengulang bagian Memahami sebelum latihan berikutnya.</p>
+    <p><strong>Asesmen formatif:</strong> observasi saat eksplorasi dan diskusi, hasil latihan mandiri, dan cek diri. MPI ini tidak menggantikan asesmen sumatif guru.</p>
+  </details>
+</section>
+
+<section class="card" id="atp">
+  <p class="stage">Lampiran</p>
+  <h2>ATP Kelas 7 Semester 1</h2>
+  <p class="small muted">Sumber: ATP Matematika Fase D, MGMP Matematika SMP Kabupaten Lampung Tengah, Tahun Pelajaran 2026/2027.</p>
+  <table>
+    <tr><th>Kode</th><th>Tujuan Pembelajaran (TP)</th><th>Materi</th><th>Alokasi (JP per TP)</th></tr>
+    <tr><td><strong>B.1</strong></td><td>Menjelaskan, menyatakan, membandingkan, mengurutkan, dan menentukan hasil operasi hitung bilangan bulat.</td><td>Bilangan Bulat</td><td>10</td></tr>
+    <tr><td><strong>B.2</strong></td><td>Menyelesaikan permasalahan keseharian yang melibatkan konsep bilangan bulat termasuk berkaitan dengan penguatan literasi finansial.</td><td>Bilangan Bulat, Aritmetika Sosial</td><td>14</td></tr>
+    <tr><td><strong>B.3</strong></td><td>Mengidentifikasi, menyatakan, membandingkan, menentukan operasi hitung, menaksir, dan melakukan estimasi bilangan rasional serta menyelesaikan permasalahan kontekstual yang terkait termasuk berkaitan dengan penguatan literasi finansial.</td><td>Bilangan Rasional, Aritmetika Sosial</td><td>22</td></tr>
+    <tr><td><strong>B.4</strong></td><td>Menjelaskan, membedakan, membandingkan, dan menentukan rasio (skala, proporsi, dan laju perubahan) serta menyelesaikan permasalahan kontekstual yang terkait.</td><td>Perbandingan</td><td>14</td></tr>
+  </table>
+  <h3>Distribusi materi Kelas 7 Semester 1</h3>
+  <table>
+    <tr><th>Materi Pokok</th><th>Kode TP</th><th>Alokasi</th></tr>
+    <tr><td>Bilangan Bulat</td><td>B.1, B.2</td><td>18 JP</td></tr>
+    <tr><td>Bilangan Rasional</td><td>B.3</td><td>16 JP</td></tr>
+    <tr><td>Aritmetika Sosial</td><td>B.2, B.3</td><td>12 JP</td></tr>
+    <tr><td>Perbandingan</td><td>B.4</td><td>14 JP</td></tr>
+    <tr><td><strong>Jumlah</strong></td><td></td><td><strong>60 JP</strong></td></tr>
+  </table>
+  <div class="warn small">
+    <strong>Catatan alokasi, supaya tidak salah jumlah:</strong> angka JP pada tabel TP adalah alokasi per TP di ATP, sedangkan 18 JP adalah alokasi materi Bilangan Bulat di distribusi. B.2 berlanjut ke Aritmetika Sosial, jadi 10 + 14 tidak sama dengan 18. MPI ini memuat B.1 dan B.2 pada porsi Bilangan Bulatnya.
+  </div>
+  <div class="warn small" style="margin-top:12px">
+    <strong>Catatan koreksi dokumen yang sudah diterapkan untuk peta MPI ini:</strong> (1) Garis dan Sudut menjadi bab sendiri di Kelas 7 Semester 2, terpisah dari Kesebangunan dan Kekongruenan; (2) Peluang Kelas 9 Semester 2 memuat D.5 dan D.6 (16 JP); (3) total distribusi Kelas 8 Semester 2 adalah 54 JP.
+  </div>
+  <p><a href="../../../ATP_Matematika_Fase_D_MGMP-1.docx">Unduh ATP asli MGMP (docx)</a> <span class="small muted">— berkas ini akan ditambahkan ke repo saat pilot di-push, atas izin Pak Gun.</span></p>
+  <p class="small">Materi berikutnya dalam peta 20 MPI: Bilangan Rasional (B.3), Aritmetika Sosial (B.2, B.3), dan Perbandingan (B.4). Tautan antar-materi akan aktif saat materi tersebut sudah dibangun.</p>
+</section>
+
+</div>
+<!-- Footer global template MPI: pakai footer yang sama persis di semua halaman MPI -->
+<footer class="global-footer" id="mpi-footer">@mpi-mtk-smp-pakgun-2026</footer>
+
+<script src="../../../assets/js/common.js"></script>
+<script>
+function fmt(n){ return (n < 0 ? "\u2212" + Math.abs(n) : String(n)); }
+function money(n){
+  var sign = n < 0 ? "-" : "";
+  return sign + "Rp" + Math.abs(n).toLocaleString("id-ID");
+}
+function show(id, bad){
+  var el = document.getElementById(id);
+  el.classList.remove("hidden");
+  el.classList.toggle("bad", !!bad);
+  return el;
+}
+// Garis bilangan
+var numRange = document.getElementById("numRange");
+var numLabel = document.getElementById("numLabel");
+var numMarker = document.getElementById("numMarker");
+var numResult = document.getElementById("numResult");
+function updateNum(){
+  var v = parseInt(numRange.value, 10);
+  numLabel.textContent = fmt(v);
+  numMarker.style.left = ((v + 10) / 20 * 100) + "%";
+  var kind = v > 0 ? "bilangan positif" : (v < 0 ? "bilangan negatif" : "nol");
+  numResult.textContent = fmt(v) + " adalah " + kind + ". Lawannya " + fmt(-v) + ", dan jaraknya dari nol adalah " + Math.abs(v) + ".";
+}
+numRange.addEventListener("input", updateNum);
+document.getElementById("numMinus").addEventListener("click", function(){ numRange.value = Math.max(-10, parseInt(numRange.value, 10) - 1); updateNum(); });
+document.getElementById("numPlus").addEventListener("click", function(){ numRange.value = Math.min(10, parseInt(numRange.value, 10) + 1); updateNum(); });
+updateNum();
+// Membandingkan
+document.getElementById("cmpBtn").addEventListener("click", function(){
+  var a = parseInt(document.getElementById("cmpA").value, 10);
+  var b = parseInt(document.getElementById("cmpB").value, 10);
+  if (isNaN(a) || isNaN(b)) { show("cmpResult", true).textContent = "Masukkan dua bilangan dulu."; return; }
+  var rel = a < b ? "<" : (a > b ? ">" : "=");
+  var why = a === b ? "kedua bilangan sama." : (fmt(a) + " terletak lebih " + (a < b ? "ke kiri" : "ke kanan") + " daripada " + fmt(b) + " pada garis bilangan.");
+  show("cmpResult").innerHTML = "<strong>" + fmt(a) + " " + rel + " " + fmt(b) + "</strong> — " + why;
+});
+// Mengurutkan
+var orderPool = [], orderChosen = [];
+function renderOrder(){
+  var poolEl = document.getElementById("orderPool");
+  poolEl.innerHTML = "";
+  orderPool.forEach(function(n, i){
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "order-btn secondary"; b.textContent = fmt(n);
+    b.addEventListener("click", function(){
+      if (b.classList.contains("used")) return;
+      b.classList.add("used"); orderChosen.push(n);
+      document.getElementById("orderChosen").textContent = orderChosen.map(fmt).join(", ");
+      if (orderChosen.length === orderPool.length){
+        var sorted = orderPool.slice().sort(function(x, y){ return x - y; });
+        var ok = orderChosen.every(function(v, idx){ return v === sorted[idx]; });
+        show("orderResult", !ok).innerHTML = ok
+          ? "<strong>Benar!</strong> Urutanmu sudah dari kecil ke besar."
+          : "<strong>Belum tepat.</strong> Urutan yang benar: " + sorted.map(fmt).join(", ") + ". Tekan “Ulangi”, lalu coba lagi.";
+      }
+    });
+    poolEl.appendChild(b);
+  });
+}
+function newOrder(){
+  var set = new Set();
+  while (set.size < 5) set.add(Math.floor(Math.random() * 41) - 20);
+  orderPool = Array.from(set); orderChosen = [];
+  document.getElementById("orderChosen").textContent = "—";
+  document.getElementById("orderResult").classList.add("hidden");
+  renderOrder();
+}
+document.getElementById("orderNew").addEventListener("click", newOrder);
+document.getElementById("orderReset").addEventListener("click", function(){
+  orderChosen = [];
+  document.getElementById("orderChosen").textContent = "—";
+  document.getElementById("orderResult").classList.add("hidden");
+  renderOrder();
+});
+newOrder();
+// Kalkulator langkah
+document.getElementById("calcBtn").addEventListener("click", function(){
+  var a = parseInt(document.getElementById("calcA").value, 10);
+  var op = document.getElementById("calcOp").value;
+  var b = parseInt(document.getElementById("calcB").value, 10);
+  if (isNaN(a) || isNaN(b)) { show("calcResult", true).textContent = "Masukkan dua bilangan dulu."; return; }
+  if (op === "/" && b === 0) { show("calcResult", true).textContent = "Pembagian dengan nol tidak terdefinisi. Ganti bilangan kedua."; return; }
+  var result, step;
+  if (op === "+") { result = a + b; step = "Jumlahkan " + fmt(a) + " dan " + fmt(b) + "."; }
+  if (op === "-") { result = a - b; step = fmt(a) + " − (" + fmt(b) + ") = " + fmt(a) + " + (" + fmt(-b) + ") — pengurangan diubah menjadi penjumlahan dengan lawan."; }
+  if (op === "*") { result = a * b; step = "Tanda " + ((a < 0) === (b < 0) ? "sama, jadi hasilnya positif." : "berbeda, jadi hasilnya negatif."); }
+  if (op === "/") { result = a / b; step = "Tanda " + ((a < 0) === (b < 0) ? "sama, jadi hasilnya positif." : "berbeda, jadi hasilnya negatif."); }
+  var sym = op === "*" ? "×" : (op === "/" ? ":" : op);
+  show("calcResult").innerHTML = "<strong>" + fmt(a) + " " + sym + " " + fmt(b) + " = " + fmt(result) + "</strong><br>" + step;
+});
+// Latihan mandiri
+var quiz = [];
+function randInt(min, max){ return Math.floor(Math.random() * (max - min + 1)) + min; }
+function newQuiz(){
+  quiz = [];
+  for (var i = 0; i < 5; i++){
+    var kind = randInt(0, 3), a, b, ans, text;
+    if (kind === 0) { a = randInt(-20, 20); b = randInt(-20, 20); ans = a + b; text = fmt(a) + " + " + fmt(b) + " = ?"; }
+    else if (kind === 1) { a = randInt(-20, 20); b = randInt(-20, 20); ans = a - b; text = fmt(a) + " − " + fmt(b) + " = ?"; }
+    else if (kind === 2) { a = randInt(-12, 12); b = randInt(-12, 12); ans = a * b; text = fmt(a) + " × " + fmt(b) + " = ?"; }
+    else { b = randInt(-12, 12); if (b === 0) b = 3; var q = randInt(-12, 12); a = b * q; ans = q; text = fmt(a) + " : " + fmt(b) + " = ?"; }
+    quiz.push({ text: text, ans: ans });
+  }
+  var box = document.getElementById("quizBox");
+  box.innerHTML = "";
+  quiz.forEach(function(item, idx){
+    var row = document.createElement("div");
+    row.className = "quiz-row";
+    row.innerHTML = '<span class="q">' + (idx + 1) + ". " + item.text + '</span><input type="number" aria-label="Jawaban soal ' + (idx + 1) + '"><span class="fb"></span>';
+    box.appendChild(row);
+  });
+  document.getElementById("quizScore").classList.add("hidden");
+}
+document.getElementById("quizNew").addEventListener("click", newQuiz);
+document.getElementById("quizCheck").addEventListener("click", function(){
+  var inputs = document.querySelectorAll("#quizBox input");
+  var score = 0;
+  inputs.forEach(function(input, idx){
+    var fb = input.parentElement.querySelector(".fb");
+    var val = parseInt(input.value, 10);
+    if (!isNaN(val) && val === quiz[idx].ans) { score++; fb.textContent = "✓ Benar"; fb.className = "fb ok"; }
+    else { fb.textContent = "Jawaban: " + fmt(quiz[idx].ans); fb.className = "fb no"; }
+  });
+  show("quizScore", score < 5).innerHTML = "<strong>Skor: " + score + " dari 5.</strong> " + (score === 5 ? "Bagus sekali, semua benar!" : "Periksa jawaban yang ditandai, lalu coba soal baru untuk berlatih lagi.");
+});
+newQuiz();
+// Simulasi dompet
+var walletBalance = 50000;
+function renderWallet(){
+  document.getElementById("walletResult").innerHTML = "Saldo sekarang: <strong>" + money(walletBalance) + "</strong>" + (walletBalance < 0 ? " — saldo negatif artinya berutang." : "");
+}
+document.getElementById("walletSet").addEventListener("click", function(){
+  var v = parseInt(document.getElementById("walletStart").value, 10);
+  if (isNaN(v)) return;
+  walletBalance = v;
+  document.getElementById("walletList").innerHTML = "";
+  renderWallet();
+});
+document.getElementById("walletAdd").addEventListener("click", function(){
+  var amt = parseInt(document.getElementById("walletAmount").value, 10);
+  if (isNaN(amt) || amt < 0) { alert("Masukkan jumlah transaksi yang valid."); return; }
+  var type = document.getElementById("walletType").value;
+  var note = document.getElementById("walletNote").value.trim() || "(tanpa keterangan)";
+  walletBalance += (type === "in" ? amt : -amt);
+  var li = document.createElement("li");
+  li.textContent = (type === "in" ? "+ " : "− ") + money(amt) + " — " + note;
+  document.getElementById("walletList").appendChild(li);
+  renderWallet();
+});
+renderWallet();
+// Refleksi
+document.getElementById("reflectBtn").addEventListener("click", function(){
+  var boxes = document.querySelectorAll(".selfcheck");
+  var n = 0; boxes.forEach(function(b){ if (b.checked) n++; });
+  var msg = n === 4
+    ? "<strong>Semua tercentang.</strong> Lanjutkan ke materi berikutnya: Bilangan Rasional. Tetap latih soal campuran supaya tidak lupa."
+    : "<strong>" + n + " dari 4 tercentang.</strong> Kembali ke bagian yang belum tercentang: Memahami untuk konsep, Mengaplikasi untuk latihan, lalu centang lagi.";
+  show("reflectResult").innerHTML = msg;
+});
+</script>
+</body>
+</html>

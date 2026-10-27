@@ -1,0 +1,105 @@
+:root{--teal:#0f766e;--teal-dark:#0b5e57;--amber:#f59e0b;--ink:#1f2937;--muted:#6b7280;--bg:#f6f7fb;--card:#ffffff;--line:#e5e7eb;--good:#15803d;--bad:#b91c1c}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+  a{color:var(--teal)}
+  .wrap{max-width:880px;margin:0 auto;padding:16px}
+  header.hero{background:linear-gradient(135deg,#0f766e,#14b8a6);color:#fff;border-radius:16px;padding:28px 24px}
+  header.hero p{margin:6px 0}
+  .eyebrow{font-size:13px;letter-spacing:.08em;text-transform:uppercase;opacity:.9}
+  h1{margin:8px 0;font-size:34px;line-height:1.2}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .chip{background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.45);padding:6px 12px;border-radius:999px;font-size:14px}
+  nav.stage-nav{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+  nav.stage-nav a{background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 14px;text-decoration:none;color:var(--ink);font-weight:600}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin:16px 0}
+  .stage{font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--teal)}
+  h2{margin:6px 0 8px;font-size:24px;line-height:1.3}
+  h3{margin:18px 0 6px;font-size:18px}
+  .muted{color:var(--muted)}
+  .small{font-size:14px}
+  .callout{background:#ecfdf5;border:1px solid #a7f3d0;border-radius:10px;padding:14px}
+  .warn{background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:14px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  /* ===== Responsif: HP, tablet, laptop, PID/TV ===== */
+  /* HP: satu kolom, tombol sentuh besar, tabel bisa digeser */
+  @media(max-width:640px){
+    .wrap{padding:12px}
+    header.hero{padding:20px 16px;border-radius:12px}
+    h1{font-size:28px} h2{font-size:21px} h3{font-size:17px}
+    .grid3{grid-template-columns:1fr}
+    .card{padding:16px}
+    nav.stage-nav a{flex:1 1 42%;text-align:center;padding:10px 8px}
+    p button{width:100%}
+    .center{display:flex;gap:8px}
+    .center button{width:50%}
+    .order-btn{width:auto}
+    button{min-height:44px}
+    table{display:block;overflow-x:auto;font-size:14px}
+    th,td{padding:7px}
+    .quiz-row{flex-direction:column;align-items:stretch}
+    .quiz-row input{width:100%}
+    .marker{width:28px;height:28px}
+    .ticks{font-size:11px}
+  }
+  /* Tablet: ruang lebih lega, tetap mudah dibaca dalam genggaman */
+  @media(min-width:641px) and (max-width:1024px){
+    .wrap{max-width:940px;padding:20px}
+    h1{font-size:36px} h2{font-size:26px}
+    .card{padding:22px}
+    button{min-height:44px}
+  }
+  /* Laptop: kolom konten lebih lebar dari HP/tablet */
+  @media(min-width:1025px){
+    .wrap{max-width:1080px}
+    body{font-size:17px}
+    h1{font-size:40px} h2{font-size:28px}
+    header.hero{padding:32px 28px}
+    .card{padding:24px}
+  }
+  /* PID / TV 52 inci: dilihat dari jarak jauh, semua diperbesar */
+  @media(min-width:1600px){
+    .wrap{max-width:1400px;padding:28px}
+    body{font-size:20px;line-height:1.7}
+    h1{font-size:54px} h2{font-size:36px} h3{font-size:24px}
+    .stage{font-size:15px} .small{font-size:17px} .chip{font-size:17px}
+    .card{padding:32px}
+    button{font-size:19px;padding:14px 26px;min-height:52px}
+    input[type="number"],input[type="text"],select,textarea{font-size:19px;padding:14px}
+    .marker{width:32px;height:32px}
+    .numline{height:12px}
+    footer.global-footer{font-size:20px;padding:36px 12px}
+  }
+  /* TV 4K: jangan biarkan konten mengecil di tengah layar lebar */
+  @media(min-width:2560px){
+    .wrap{max-width:2000px}
+    body{font-size:24px}
+    h1{font-size:64px} h2{font-size:42px}
+  }
+  label{font-weight:600;display:block;margin:10px 0 4px}
+  input[type="number"],input[type="text"],select,textarea{width:100%;padding:10px;border:1px solid var(--line);border-radius:10px;font-size:16px}
+  input[type="range"]{width:100%}
+  button{cursor:pointer;background:var(--teal);color:#fff;border:0;border-radius:999px;padding:10px 18px;font-size:15px;font-weight:700}
+  button:hover{background:var(--teal-dark)}
+  button.secondary{background:#fff;color:var(--teal);border:2px solid var(--teal)}
+  button:disabled{opacity:.55;cursor:default}
+  .big{font-size:40px;font-weight:800;text-align:center;margin:8px 0}
+  .center{text-align:center}
+  .result{margin-top:12px;padding:12px;border-radius:10px;background:#f0fdfa;border:1px solid #99f6e4}
+  .result.bad{background:#fef2f2;border-color:#fecaca}
+  .hidden{display:none}
+  .numline{position:relative;height:10px;background:#e5e7eb;border-radius:999px;margin:22px 8px 8px}
+  .marker{position:absolute;top:50%;width:22px;height:22px;background:var(--amber);border:3px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,.25);border-radius:50%;transform:translate(-50%,-50%)}
+  .ticks{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);padding:0 8px}
+  .order-btn{margin:4px}
+  .order-btn.used{opacity:.4}
+  table{width:100%;border-collapse:collapse;font-size:15px}
+  th,td{border:1px solid var(--line);padding:8px;text-align:left;vertical-align:top}
+  th{background:#f0fdfa}
+  .quiz-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:10px 0;border-bottom:1px solid var(--line)}
+  .quiz-row .q{font-weight:700;min-width:150px}
+  .quiz-row input{width:120px}
+  .quiz-row .fb{font-weight:700}
+  .ok{color:var(--good)} .no{color:var(--bad)}
+  details{border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:10px 0;background:#fff}
+  summary{cursor:pointer;font-weight:700}
+  footer.global-footer{background:var(--teal);color:#fff;font-weight:800;font-size:16px;text-align:center;padding:22px 12px;margin-top:24px}
