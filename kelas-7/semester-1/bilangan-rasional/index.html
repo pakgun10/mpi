@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MPI Bilangan Rasional — Matematika Kelas 7 Semester 1</title>
+<meta name="description" content="Media Pembelajaran Interaktif Bilangan Rasional untuk Matematika SMP Kelas 7 Semester 1, berdasarkan ATP MGMP Matematika SMP Kabupaten Lampung Tengah 2026/2027.">
+<link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+<div class="wrap">
+<p class="small"><a href="../../../index.html">&larr; Portal MPI</a> &middot; <a href="../index.html">&larr; Kelas 7 Semester 1</a> &middot; <a href="../bilangan-bulat/">&larr; Materi sebelumnya: Bilangan Bulat</a> &middot; <a href="../../../atp/kelas-7/index.html">ATP Kelas 7</a></p>
+
+<header class="hero">
+  <p class="eyebrow">MPI Matematika SMP &bull; Fase D</p>
+  <h1>Bilangan Rasional</h1>
+  <p>Satu bilangan, tiga pakaian: pecahan, desimal, dan persen. Pelajari cara mengubahnya, membandingkannya, dan memakainya untuk diskon dan uang saku.</p>
+  <div class="chips">
+    <span class="chip">Kelas 7 &bull; Semester 1</span>
+    <span class="chip">TP B.3</span>
+    <span class="chip">Alokasi materi: 16 JP</span>
+    <span class="chip">Kurikulum Merdeka &bull; Pembelajaran Mendalam</span>
+  </div>
+</header>
+
+<nav class="stage-nav" aria-label="Navigasi tahap belajar">
+  <a href="#memahami">1 &bull; Memahami</a>
+  <a href="#mengaplikasi">2 &bull; Mengaplikasi</a>
+  <a href="#merefleksi">3 &bull; Merefleksi</a>
+  <a href="#panel-guru">Panel Guru</a>
+  <a href="#atp">Lampiran ATP</a>
+</nav>
+
+<section class="card" aria-labelledby="tujuan">
+  <p class="stage">Mulai dari sini</p>
+  <h2 id="tujuan">Setelah belajar ini, kamu dapat &hellip;</h2>
+  <ol>
+    <li><strong>Mengidentifikasi dan menyatakan bilangan rasional</strong> dalam bentuk pecahan, desimal, dan persen.</li>
+    <li><strong>Membandingkan, mengurutkan, dan menentukan hasil operasi hitung</strong> bilangan rasional (penjumlahan, pengurangan, perkalian, dan pembagian).</li>
+    <li><strong>Menaksir dan melakukan estimasi</strong>, serta <strong>menyelesaikan permasalahan kontekstual</strong> yang terkait, termasuk penguatan literasi finansial. <span class="muted">(TP B.3)</span></li>
+  </ol>
+  <p class="small muted">Rumusan TP lengkap dan tabel ATP ada di Panel Guru dan Lampiran ATP di bawah. Jawaban latihan dan refleksimu hanya tersimpan di perangkatmu sendiri, tidak dikirim ke mana pun, karena MPI ini tanpa login.</p>
+</section>
+
+<section class="card" id="memahami">
+  <p class="stage">Tahap 1 &bull; Memahami</p>
+  <h2>Apa itu bilangan rasional?</h2>
+  <p>Bilangan rasional adalah bilangan yang bisa ditulis sebagai <strong>a/b</strong>, dengan a bilangan bulat dan b bilangan bulat bukan nol. Jadi bilangan bulat, pecahan, desimal, dan persen yang setara, semuanya bilangan rasional. Contoh: 2, &minus;3, 3/4, 0,75, dan 75% — tiga yang terakhir itu bilangan yang sama, hanya pakaiannya beda.</p>
+  <div class="grid3">
+    <div class="callout"><strong>🍕 Pizza</strong><br>3 dari 4 potong pizza = 3/4 = 0,75 = 75%.</div>
+    <div class="callout"><strong>🛍️ Diskon</strong><br>Diskon 25% artinya membayar 75/100 dari harga, yaitu 0,75 &times; harga.</div>
+    <div class="callout"><strong>💰 Uang saku</strong><br>Rp7.500 dari Rp10.000 = 7500/10000 = 3/4 = 75% dari uang itu.</div>
+  </div>
+
+  <h3>1. Pengubah pecahan, desimal, dan persen</h3>
+  <p class="small muted">Pilih bentuk awalnya, isi bilangannya, lalu tekan “Ubah”. Perhatikan bahwa bentuk sederhananya selalu ditampilkan.</p>
+  <label for="convMode">Bentuk awal</label>
+  <select id="convMode">
+    <option value="frac">Pecahan (a/b)</option>
+    <option value="dec">Desimal</option>
+    <option value="pct">Persen (%)</option>
+  </select>
+  <div id="convFrac">
+    <label for="convNum">Pembilang (a)</label>
+    <input type="number" id="convNum" value="3">
+    <label for="convDen">Penyebut (b, bukan nol)</label>
+    <input type="number" id="convDen" value="4">
+  </div>
+  <div id="convDec" class="hidden">
+    <label for="convDecVal">Desimal (contoh: 0,75 ditulis 0.75)</label>
+    <input type="number" id="convDecVal" value="0.75" step="0.01">
+  </div>
+  <div id="convPct" class="hidden">
+    <label for="convPctVal">Persen (contoh: 75 untuk 75%)</label>
+    <input type="number" id="convPctVal" value="75">
+  </div>
+  <p><button type="button" id="convBtn">Ubah</button></p>
+  <div class="result hidden" id="convResult"></div>
+  <p class="small muted">Catatan: desimal yang kamu ketik dibaca apa adanya. 0,333 dibaca 333/1000, bukan 1/3 yang desimalnya berulang tanpa henti.</p>
+
+  <h3>2. Membandingkan dua bilangan rasional</h3>
+  <p>Aturan praktisnya: ubah keduanya ke desimal, atau kalikan silang dengan penyebut positif. Contoh: 2/3 lawan 3/5 — kalikan silang 2 &times; 5 = 10 dan 3 &times; 3 = 9, jadi 2/3 lebih besar karena 10 &gt; 9.</p>
+  <label for="cmpA1">Pecahan pertama — pembilang</label>
+  <input type="number" id="cmpA1" value="2">
+  <label for="cmpB1">Pecahan pertama — penyebut</label>
+  <input type="number" id="cmpB1" value="3">
+  <label for="cmpA2">Pecahan kedua — pembilang</label>
+  <input type="number" id="cmpA2" value="3">
+  <label for="cmpB2">Pecahan kedua — penyebut</label>
+  <input type="number" id="cmpB2" value="5">
+  <p><button type="button" id="cmpBtn">Bandingkan</button></p>
+  <div class="result hidden" id="cmpResult"></div>
+
+  <h3>3. Mengurutkan dari kecil ke besar</h3>
+  <p class="small muted">Tekan tombol “Acak”, lalu klik pecahan-pecahannya secara berurutan dari yang terkecil nilainya.</p>
+  <p><button type="button" id="orderNew">Acak 5 Pecahan</button> <button type="button" class="secondary" id="orderReset">Ulangi</button></p>
+  <div id="orderPool"></div>
+  <p class="small">Urutan pilihanmu: <strong id="orderChosen">—</strong></p>
+  <div class="result hidden" id="orderResult"></div>
+
+  <h3>4. Aturan operasi hitung, dalam satu pandangan</h3>
+  <table>
+    <tr><th>Operasi</th><th>Aturannya</th><th>Contoh</th></tr>
+    <tr><td>Penjumlahan &amp; pengurangan pecahan</td><td>Samakan penyebut dulu (pakai KPK), lalu jumlahkan/kurangkan pembilangnya.</td><td>2/3 + 1/4 = 8/12 + 3/12 = 11/12</td></tr>
+    <tr><td>Perkalian pecahan</td><td>Pembilang &times; pembilang, penyebut &times; penyebut, lalu sederhanakan.</td><td>2/3 &times; 3/4 = 6/12 = 1/2</td></tr>
+    <tr><td>Pembagian pecahan</td><td>Kalikan dengan kebalikan pembaginya.</td><td>2/3 : 3/4 = 2/3 &times; 4/3 = 8/9</td></tr>
+    <tr><td>Operasi desimal</td><td>Tambah/kurang: sejajarkan koma. Kali: abaikan koma dulu, lalu hitung jumlah tempat desimalnya. Bagi: ubah pembagi jadi bilangan bulat.</td><td>0,75 + 0,5 = 1,25; 0,75 &times; 0,4 = 0,30 = 0,3</td></tr>
+    <tr><td>Estimasi</td><td>Bulatkan ke bilangan yang mudah dulu, hitung kira-kiranya, lalu bandingkan dengan hasil sebenarnya.</td><td>0,48 &times; 19 &asymp; 0,5 &times; 20 = 10 (sebenarnya 9,12)</td></tr>
+  </table>
+  <p class="small"><strong>Jebakan umum:</strong> 1/2 + 1/3 bukan 2/5. Pembilang dan penyebut tidak boleh langsung dijumlahkan begitu saja — samakan penyebutnya dulu: 1/2 + 1/3 = 3/6 + 2/6 = 5/6.</p>
+
+  <h3>5. Kalkulator langkah pecahan</h3>
+  <p class="small muted">Masukkan dua pecahan dan operasinya. Perhatikan langkahnya, bukan hanya hasilnya.</p>
+  <label for="calcA1">Pecahan pertama — pembilang</label>
+  <input type="number" id="calcA1" value="2">
+  <label for="calcB1">Pecahan pertama — penyebut</label>
+  <input type="number" id="calcB1" value="3">
+  <label for="calcOp">Operasi</label>
+  <select id="calcOp">
+    <option value="+">Penjumlahan (+)</option>
+    <option value="-">Pengurangan (&minus;)</option>
+    <option value="*">Perkalian (&times;)</option>
+    <option value="/">Pembagian (:)</option>
+  </select>
+  <label for="calcA2">Pecahan kedua — pembilang</label>
+  <input type="number" id="calcA2" value="1">
+  <label for="calcB2">Pecahan kedua — penyebut</label>
+  <input type="number" id="calcB2" value="4">
+  <p><button type="button" id="calcBtn">Hitung dengan Langkah</button></p>
+  <div class="result hidden" id="calcResult"></div>
+</section>
+
+<section class="card" id="mengaplikasi">
+  <p class="stage">Tahap 2 &bull; Mengaplikasi</p>
+  <h2>Pakai bilangan rasional untuk menyelesaikan masalah</h2>
+
+  <h3>Contoh soal — tekan “Lihat Pembahasan” setelah kamu mencoba</h3>
+  <div>
+    <p><strong>Contoh 1.</strong> Hitunglah 2/3 + 1/4.</p>
+    <p><button type="button" class="secondary" data-toggle="pb1" aria-expanded="false">Lihat Pembahasan</button></p>
+    <div class="result hidden" id="pb1">KPK dari 3 dan 4 adalah 12. 2/3 = 8/12 dan 1/4 = 3/12, jadi 8/12 + 3/12 = 11/12. <strong>Jawaban: 11/12.</strong></div>
+  </div>
+  <div>
+    <p><strong>Contoh 2 (literasi finansial).</strong> Sebuah tas berharga Rp80.000 mendapat diskon 25%. Berapa yang harus dibayar?</p>
+    <p><button type="button" class="secondary" data-toggle="pb2" aria-expanded="false">Lihat Pembahasan</button></p>
+    <div class="result hidden" id="pb2">Diskonnya 25% &times; 80.000 = 20.000. Bayarnya 80.000 &minus; 20.000 = 60.000. Cara lain: membayar 75% &times; 80.000 = 60.000. <strong>Jawaban: Rp60.000.</strong></div>
+  </div>
+  <div>
+    <p><strong>Contoh 3 (estimasi).</strong> Taksirlah 0,48 &times; 19, lalu bandingkan dengan hasil sebenarnya.</p>
+    <p><button type="button" class="secondary" data-toggle="pb3" aria-expanded="false">Lihat Pembahasan</button></p>
+    <div class="result hidden" id="pb3">Taksiran: 0,48 &asymp; 0,5 dan 19 &asymp; 20, jadi 0,5 &times; 20 = 10. Hasil sebenarnya 0,48 &times; 19 = 9,12. Taksiran 10 cukup dekat dan berguna untuk memeriksa apakah jawabanmu masuk akal. <strong>Jawaban: taksiran 10, sebenarnya 9,12.</strong></div>
+  </div>
+
+  <h3>Latihan mandiri — 5 soal pecahan acak</h3>
+  <p class="small muted">Tulis jawabanmu sebagai pecahan, contoh: 11/12. Pecahan senilai juga diterima, misalnya 22/24 untuk 11/12, karena nilainya sama.</p>
+  <p><button type="button" id="quizNew">Buat 5 Soal Baru</button> <button type="button" class="secondary" id="quizCheck">Periksa Semua</button></p>
+  <div id="quizBox"></div>
+  <div class="result hidden" id="quizScore"></div>
+
+  <h3>Simulasi diskon (literasi finansial)</h3>
+  <p class="small muted">Geser persen diskonnya dan perhatikan potongan harga serta harga yang harus dibayar.</p>
+  <label for="discPrice">Harga awal (Rp)</label>
+  <input type="number" id="discPrice" value="80000" min="0" step="1000">
+  <label for="discRange">Diskon: <span id="discLabel">25%</span></label>
+  <input type="range" id="discRange" min="0" max="90" step="5" value="25" aria-label="Persen diskon">
+  <div class="result" id="discResult"></div>
+</section>
+
+<section class="card" id="merefleksi">
+  <p class="stage">Tahap 3 &bull; Merefleksi</p>
+  <h2>Apa yang sudah kamu kuasai?</h2>
+  <p>Centang dengan jujur. Tidak ada nilai di sini, hanya peta untuk belajar berikutnya.</p>
+  <div>
+    <label><input type="checkbox" class="selfcheck"> Saya bisa mengidentifikasi dan menyatakan bilangan rasional sebagai pecahan, desimal, dan persen.</label>
+    <label><input type="checkbox" class="selfcheck"> Saya bisa membandingkan dan mengurutkan bilangan rasional.</label>
+    <label><input type="checkbox" class="selfcheck"> Saya bisa menghitung operasi pecahan dan desimal.</label>
+    <label><input type="checkbox" class="selfcheck"> Saya bisa menaksir hasil dan menyelesaikan masalah diskon/uang.</label>
+  </div>
+  <p><button type="button" id="reflectBtn">Lihat Pesan Refleksiku</button></p>
+  <div class="result hidden" id="reflectResult"></div>
+  <label for="reflect1">Hal yang paling membantuku memahami bilangan rasional hari ini adalah &hellip;</label>
+  <textarea id="reflect1" rows="3" placeholder="Tuliskan dengan bahasamu sendiri."></textarea>
+  <label for="reflect2">Bagian yang masih ingin kulatih lagi adalah &hellip;</label>
+  <textarea id="reflect2" rows="3" placeholder="Tuliskan dengan bahasamu sendiri."></textarea>
+  <p class="small muted">Tulisanmu hanya ada di perangkatmu dan tidak dikirim ke mana pun.</p>
+  <div class="callout">
+    <strong>Dimensi Profil Lulusan yang dilatih di materi ini:</strong>
+    <ul>
+      <li><strong>Penalaran Kritis</strong> — membandingkan pecahan, memilih bentuk yang paling mudah, dan memeriksa kewajaran taksiran.</li>
+      <li><strong>Komunikasi</strong> — menjelaskan mengapa 1/2 = 0,5 = 50% dan langkah penyelesaian dengan bahasamu.</li>
+      <li><strong>Kemandirian</strong> — mengerjakan latihan mandiri dan menilai sendiri pemahamanmu di tahap refleksi.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="card" id="panel-guru">
+  <p class="stage">Untuk Guru &bull; Panel ini bisa dibuka dan ditutup</p>
+  <h2>Panel Guru</h2>
+  <p class="small muted">Bagian ini bukan untuk dinilai siswa. Gunakan untuk menyiapkan dan memandu pembelajaran di kelas.</p>
+  <details>
+    <summary>Identitas dan identifikasi</summary>
+    <p><strong>Mata pelajaran:</strong> Matematika &bull; <strong>Fase:</strong> D &bull; <strong>Kelas:</strong> 7 &bull; <strong>Semester:</strong> 1 &bull; <strong>Materi:</strong> Bilangan Rasional &bull; <strong>Alokasi materi (distribusi):</strong> 16 JP &bull; <strong>Tahun pelajaran:</strong> 2026/2027.</p>
+    <p><strong>Karakteristik murid:</strong> murid sudah mengenal pecahan di SD, tetapi sering mengira penyebut besar berarti nilai besar, dan sering menjumlahkan pembilang dengan pembilang serta penyebut dengan penyebut.</p>
+    <p><strong>Karakteristik materi:</strong> satu nilai bisa tampil sebagai pecahan, desimal, dan persen. Kesetaraan bentuk inilah yang harus dikuatkan sebelum operasi, supaya operasi tidak sekadar hafalan langkah.</p>
+    <p><strong>Tujuan Pembelajaran (verbatim ATP):</strong><br>
+    B.3 — Mengidentifikasi, menyatakan, membandingkan, menentukan operasi hitung (penjumlahan, pengurangan, perkalian, dan pembagian), menaksir, dan melakukan estimasi bilangan rasional serta menyelesaikan permasalahan kontekstual yang terkait termasuk berkaitan dengan penguatan literasi finansial.</p>
+  </details>
+  <details>
+    <summary>Kerangka Pembelajaran Mendalam</summary>
+    <ul>
+      <li><strong>Prinsip:</strong> Berkesadaran (tujuan dan cek diri eksplisit) &bull; Bermakna (konteks pizza, diskon, dan uang saku) &bull; Menggembirakan (pengubah bentuk, permainan urutan, dan simulasi diskon).</li>
+      <li><strong>Dimensi Profil Lulusan yang dipilih:</strong> Penalaran Kritis, Komunikasi, Kemandirian.</li>
+      <li><strong>Praktik pedagogis:</strong> eksplorasi terbimbing, tanya jawab, latihan mandiri dengan umpan balik langsung, dan refleksi.</li>
+      <li><strong>Lingkungan pembelajaran:</strong> kelas dengan proyektor/HP siswa, diskusi berpasangan saat membandingkan dan mengurutkan.</li>
+      <li><strong>Pemanfaatan digital:</strong> MPI ini, satu halaman, tanpa login dan tanpa penyimpanan nilai.</li>
+      <li><strong>Kemitraan:</strong> orang tua/wali diajak mendiskusikan contoh diskon dan uang saku di rumah, tanpa mengumpulkan data keuangan keluarga.</li>
+    </ul>
+  </details>
+  <details>
+    <summary>Langkah pembelajaran (pendahuluan – inti – penutup)</summary>
+    <p><strong>Pendahuluan:</strong> apersepsi pizza/diskon, sampaikan tujuan B.3, asesmen awal lisan: “Mana yang lebih besar, 2/3 atau 3/5? Mengapa?”</p>
+    <p><strong>Inti — Memahami:</strong> pengubah bentuk, membandingkan, mengurutkan, dan aturan operasi.<br>
+    <strong>Inti — Mengaplikasi:</strong> contoh soal dengan pembahasan, latihan 5 soal acak, dan simulasi diskon.<br>
+    <strong>Penutup — Merefleksi:</strong> cek diri, refleksi tertulis singkat, dan tindak lanjut: murid yang belum tuntas mengulang bagian Memahami sebelum latihan berikutnya.</p>
+    <p><strong>Asesmen formatif:</strong> observasi saat eksplorasi dan diskusi, hasil latihan mandiri, dan cek diri. MPI ini tidak menggantikan asesmen sumatif guru.</p>
+  </details>
+</section>
+
+<section class="card" id="atp">
+  <p class="stage">Lampiran</p>
+  <h2>ATP Kelas 7 Semester 1</h2>
+  <p class="small muted">Sumber: ATP Matematika Fase D, MGMP Matematika SMP Kabupaten Lampung Tengah, Tahun Pelajaran 2026/2027. ATP lengkap per kelas ada di <a href="../../../atp/kelas-7/index.html">halaman ATP Kelas 7</a>.</p>
+  <table>
+    <tr><th>Kode</th><th>Tujuan Pembelajaran (TP)</th><th>Materi</th><th>Alokasi (JP per TP)</th></tr>
+    <tr><td><strong>B.1</strong></td><td>Menjelaskan, menyatakan, membandingkan, mengurutkan, dan menentukan hasil operasi hitung bilangan bulat.</td><td>Bilangan Bulat</td><td>10</td></tr>
+    <tr><td><strong>B.2</strong></td><td>Menyelesaikan permasalahan keseharian yang melibatkan konsep bilangan bulat termasuk berkaitan dengan penguatan literasi finansial.</td><td>Bilangan Bulat, Aritmetika Sosial</td><td>14</td></tr>
+    <tr><td><strong>B.3</strong></td><td>Mengidentifikasi, menyatakan, membandingkan, menentukan operasi hitung, menaksir, dan melakukan estimasi bilangan rasional serta menyelesaikan permasalahan kontekstual yang terkait termasuk berkaitan dengan penguatan literasi finansial.</td><td>Bilangan Rasional, Aritmetika Sosial</td><td>22</td></tr>
+    <tr><td><strong>B.4</strong></td><td>Menjelaskan, membedakan, membandingkan, dan menentukan rasio (skala, proporsi, dan laju perubahan) serta menyelesaikan permasalahan kontekstual yang terkait.</td><td>Perbandingan</td><td>14</td></tr>
+  </table>
+  <h3>Distribusi materi Kelas 7 Semester 1</h3>
+  <table>
+    <tr><th>Materi Pokok</th><th>Kode TP</th><th>Alokasi</th></tr>
+    <tr><td>Bilangan Bulat</td><td>B.1, B.2</td><td>18 JP</td></tr>
+    <tr><td>Bilangan Rasional</td><td>B.3</td><td>16 JP</td></tr>
+    <tr><td>Aritmetika Sosial</td><td>B.2, B.3</td><td>12 JP</td></tr>
+    <tr><td>Perbandingan</td><td>B.4</td><td>14 JP</td></tr>
+    <tr><td><strong>Jumlah</strong></td><td></td><td><strong>60 JP</strong></td></tr>
+  </table>
+  <div class="warn small">
+    <strong>Catatan alokasi, supaya tidak salah jumlah:</strong> angka JP pada tabel TP adalah alokasi per TP di ATP (B.3 = 22 JP), sedangkan 16 JP adalah alokasi materi Bilangan Rasional di distribusi. B.3 berlanjut ke Aritmetika Sosial, jadi angka TP dan angka materi tidak dijumlah mentah-mentah.
+  </div>
+  <p><a href="../../../ATP_Matematika_Fase_D_MGMP-1.docx">Unduh ATP asli MGMP (docx)</a> <span class="small muted">— tautan ini aktif setelah berkas docx di-upload ke root repo oleh Pak Gun.</span></p>
+  <p class="small">Materi sebelumnya: Bilangan Bulat (B.1, B.2). Materi berikutnya dalam peta: Aritmetika Sosial (B.2, B.3) dan Perbandingan (B.4).</p>
+</section>
+
+</div>
+<footer class="global-footer" id="mpi-footer">@mpi-mtk-smp-pakgun-2026</footer>
+<script src="../../../assets/js/common.js"></script>
+<script>
+function gcd(a, b){ a = Math.abs(a); b = Math.abs(b); while (b !== 0){ var t = b; b = a % b; a = t; } return a || 1; }
+function lcm(a, b){ return Math.abs(a * b) / gcd(a, b); }
+function simplify(num, den){
+  if (den === 0) return null;
+  var g = gcd(num, den); num = num / g; den = den / g;
+  if (den < 0){ num = -num; den = -den; }
+  return [num, den];
+}
+function fracStr(f){ return f[1] === 1 ? String(f[0]) : f[0] + "/" + f[1]; }
+function trimNum(n, places){
+  var s = n.toFixed(places);
+  if (s.indexOf(".") >= 0) s = s.replace(/0+$/, "").replace(/\.$/, "");
+  return s === "-0" ? "0" : s;
+}
+function money(n){
+  var sign = n < 0 ? "-" : "";
+  return sign + "Rp" + Math.abs(Math.round(n)).toLocaleString("id-ID");
+}
+function show(id, bad){
+  var el = document.getElementById(id);
+  el.classList.remove("hidden");
+  el.classList.toggle("bad", !!bad);
+  return el;
+}
+// Pengubah bentuk
+var convMode = document.getElementById("convMode");
+convMode.addEventListener("change", function(){
+  document.getElementById("convFrac").classList.toggle("hidden", convMode.value !== "frac");
+  document.getElementById("convDec").classList.toggle("hidden", convMode.value !== "dec");
+  document.getElementById("convPct").classList.toggle("hidden", convMode.value !== "pct");
+});
+document.getElementById("convBtn").addEventListener("click", function(){
+  var mode = convMode.value, f = null, note = "";
+  if (mode === "frac"){
+    var num = parseInt(document.getElementById("convNum").value, 10);
+    var den = parseInt(document.getElementById("convDen").value, 10);
+    if (isNaN(num) || isNaN(den) || den === 0){ show("convResult", true).textContent = "Penyebut tidak boleh nol. Periksa lagi bilanganmu."; return; }
+    f = simplify(num, den);
+  } else if (mode === "dec"){
+    var decText = document.getElementById("convDecVal").value.trim();
+    var dec = parseFloat(decText);
+    if (isNaN(dec)){ show("convResult", true).textContent = "Masukkan desimal yang valid, contoh: 0.75."; return; }
+    var parts = decText.replace("-", "").split(".");
+    var places = parts.length > 1 ? parts[1].length : 0;
+    var den2 = Math.pow(10, places);
+    var num2 = Math.round(dec * den2);
+    f = simplify(num2, den2);
+    note = " Desimal yang diketik dibaca apa adanya.";
+  } else {
+    var pct = parseFloat(document.getElementById("convPctVal").value);
+    if (isNaN(pct)){ show("convResult", true).textContent = "Masukkan persen yang valid, contoh: 75."; return; }
+    // persen/100, dihitung dengan bilangan bulat agar tidak ada galat desimal
+    var pctText = document.getElementById("convPctVal").value.trim();
+    var pp = pctText.replace("-", "").split(".");
+    var pl = pp.length > 1 ? pp[1].length : 0;
+    var pd = Math.pow(10, pl) * 100;
+    var pnInt = Math.round(parseFloat(pctText) * Math.pow(10, pl));
+    f = simplify(pnInt, pd);
+  }
+  var val = f[0] / f[1];
+  show("convResult").innerHTML = "<strong>Pecahan sederhana: " + fracStr(f) + "</strong><br>Desimal: " + trimNum(val, 4) + "<br>Persen: " + trimNum(val * 100, 2) + "%." + note;
+});
+// Membandingkan
+document.getElementById("cmpBtn").addEventListener("click", function(){
+  var a1 = parseInt(document.getElementById("cmpA1").value, 10);
+  var b1 = parseInt(document.getElementById("cmpB1").value, 10);
+  var a2 = parseInt(document.getElementById("cmpA2").value, 10);
+  var b2 = parseInt(document.getElementById("cmpB2").value, 10);
+  if ([a1, b1, a2, b2].some(isNaN) || b1 === 0 || b2 === 0){ show("cmpResult", true).textContent = "Penyebut tidak boleh nol. Periksa lagi bilanganmu."; return; }
+  // samakan tanda penyebut supaya kalikan silang berlaku
+  var f1 = simplify(a1, b1), f2 = simplify(a2, b2);
+  var left = f1[0] * f2[1], right = f2[0] * f1[1];
+  var rel = left < right ? "<" : (left > right ? ">" : "=");
+  var why = left === right ? "nilainya sama." : ("kalikan silang: " + f1[0] + " × " + f2[1] + " = " + left + " dan " + f2[0] + " × " + f1[1] + " = " + right + ", jadi yang kalikan silangnya lebih besar nilainya lebih besar.");
+  show("cmpResult").innerHTML = "<strong>" + fracStr(f1) + " " + rel + " " + fracStr(f2) + "</strong> — desimalnya " + trimNum(f1[0] / f1[1], 4) + " lawan " + trimNum(f2[0] / f2[1], 4) + ", " + why;
+});
+// Mengurutkan
+var orderPool = [], orderChosen = [];
+function orderVal(f){ return f[0] / f[1]; }
+function renderOrder(){
+  var poolEl = document.getElementById("orderPool");
+  poolEl.innerHTML = "";
+  orderPool.forEach(function(f){
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "order-btn secondary"; b.textContent = fracStr(f);
+    b.addEventListener("click", function(){
+      if (b.classList.contains("used")) return;
+      b.classList.add("used"); orderChosen.push(f);
+      document.getElementById("orderChosen").textContent = orderChosen.map(fracStr).join(", ");
+      if (orderChosen.length === orderPool.length){
+        var sorted = orderPool.slice().sort(function(x, y){ return orderVal(x) - orderVal(y); });
+        var ok = orderChosen.every(function(v, idx){ return orderVal(v) === orderVal(sorted[idx]); });
+        show("orderResult", !ok).innerHTML = ok
+          ? "<strong>Benar!</strong> Urutanmu sudah dari kecil ke besar."
+          : "<strong>Belum tepat.</strong> Urutan yang benar: " + sorted.map(fracStr).join(", ") + ". Tekan “Ulangi”, lalu coba lagi.";
+      }
+    });
+    poolEl.appendChild(b);
+  });
+}
+function newOrder(){
+  var seen = new Set(), pool = [];
+  while (pool.length < 5){
+    var num = Math.floor(Math.random() * 9) + 1;
+    var den = Math.floor(Math.random() * 8) + 2;
+    var f = simplify(num, den);
+    var key = fracStr(f);
+    if (seen.has(key)) continue;
+    seen.add(key); pool.push(f);
+  }
+  orderPool = pool; orderChosen = [];
+  document.getElementById("orderChosen").textContent = "—";
+  document.getElementById("orderResult").classList.add("hidden");
+  renderOrder();
+}
+document.getElementById("orderNew").addEventListener("click", newOrder);
+document.getElementById("orderReset").addEventListener("click", function(){
+  orderChosen = [];
+  document.getElementById("orderChosen").textContent = "—";
+  document.getElementById("orderResult").classList.add("hidden");
+  renderOrder();
+});
+newOrder();
+// Kalkulator langkah pecahan
+document.getElementById("calcBtn").addEventListener("click", function(){
+  var a = parseInt(document.getElementById("calcA1").value, 10);
+  var b = parseInt(document.getElementById("calcB1").value, 10);
+  var op = document.getElementById("calcOp").value;
+  var c = parseInt(document.getElementById("calcA2").value, 10);
+  var d = parseInt(document.getElementById("calcB2").value, 10);
+  if ([a, b, c, d].some(isNaN) || b === 0 || d === 0){ show("calcResult", true).textContent = "Penyebut tidak boleh nol. Periksa lagi bilanganmu."; return; }
+  if (op === "/" && c === 0){ show("calcResult", true).textContent = "Pembagian dengan pembagi nol tidak terdefinisi. Ganti pecahan kedua."; return; }
+  var f1 = simplify(a, b), f2 = simplify(c, d), result, step, sym;
+  if (op === "+"){ var k = lcm(f1[1], f2[1]); var n1 = f1[0] * (k / f1[1]), n2 = f2[0] * (k / f2[1]); result = simplify(n1 + n2, k); step = "Samakan penyebut ke KPK " + k + ": " + fracStr(f1) + " = " + n1 + "/" + k + " dan " + fracStr(f2) + " = " + n2 + "/" + k + ", lalu " + n1 + " + " + n2 + " = " + (n1 + n2) + ", jadi " + (n1 + n2) + "/" + k + " = " + fracStr(result) + "."; sym = "+"; }
+  if (op === "-"){ var k2 = lcm(f1[1], f2[1]); var m1 = f1[0] * (k2 / f1[1]), m2 = f2[0] * (k2 / f2[1]); result = simplify(m1 - m2, k2); step = "Samakan penyebut ke KPK " + k2 + ": " + fracStr(f1) + " = " + m1 + "/" + k2 + " dan " + fracStr(f2) + " = " + m2 + "/" + k2 + ", lalu " + m1 + " − " + m2 + " = " + (m1 - m2) + ", jadi " + (m1 - m2) + "/" + k2 + " = " + fracStr(result) + "."; sym = "−"; }
+  if (op === "*"){ result = simplify(f1[0] * f2[0], f1[1] * f2[1]); step = "Pembilang × pembilang dan penyebut × penyebut: " + (f1[0] * f2[0]) + "/" + (f1[1] * f2[1]) + " = " + fracStr(result) + "."; sym = "×"; }
+  if (op === "/"){ result = simplify(f1[0] * f2[1], f1[1] * f2[0]); step = "Kalikan dengan kebalikan pembaginya: " + fracStr(f1) + " × " + f2[1] + "/" + f2[0] + " = " + (f1[0] * f2[1]) + "/" + (f1[1] * f2[0]) + " = " + fracStr(result) + "."; sym = ":"; }
+  show("calcResult").innerHTML = "<strong>" + fracStr(f1) + " " + sym + " " + fracStr(f2) + " = " + fracStr(result) + "</strong><br>" + step;
+});
+// Latihan mandiri
+var quiz = [];
+function randInt(min, max){ return Math.floor(Math.random() * (max - min + 1)) + min; }
+function randFrac(){
+  var num, den, f;
+  do { num = randInt(1, 9); den = randInt(2, 9); f = simplify(num, den); } while (false);
+  return f;
+}
+function parseFracInput(text){
+  text = text.trim();
+  if (!text) return null;
+  if (text.indexOf("/") >= 0){
+    var parts = text.split("/");
+    if (parts.length !== 2) return null;
+    var n = parseInt(parts[0].trim(), 10), d = parseInt(parts[1].trim(), 10);
+    if (isNaN(n) || isNaN(d) || d === 0) return null;
+    return simplify(n, d);
+  }
+  var v = parseFloat(text.replace(",", "."));
+  if (isNaN(v)) return null;
+  var t = text.replace(",", ".").replace("-", "").split(".");
+  var places = t.length > 1 ? t[1].length : 0;
+  return simplify(Math.round(v * Math.pow(10, places)), Math.pow(10, places));
+}
+function newQuiz(){
+  quiz = [];
+  for (var i = 0; i < 5; i++){
+    var kind = randInt(0, 3), f1 = randFrac(), f2 = randFrac(), ans, text, sym;
+    if (kind === 0){ ans = simplify(f1[0] * f2[1] + f2[0] * f1[1], f1[1] * f2[1]); sym = "+"; }
+    else if (kind === 1){ ans = simplify(f1[0] * f2[1] - f2[0] * f1[1], f1[1] * f2[1]); sym = "−"; }
+    else if (kind === 2){ ans = simplify(f1[0] * f2[0], f1[1] * f2[1]); sym = "×"; }
+    else { ans = simplify(f1[0] * f2[1], f1[1] * f2[0]); sym = ":"; }
+    text = fracStr(f1) + " " + sym + " " + fracStr(f2) + " = ?";
+    quiz.push({ text: text, ans: ans });
+  }
+  var box = document.getElementById("quizBox");
+  box.innerHTML = "";
+  quiz.forEach(function(item, idx){
+    var row = document.createElement("div");
+    row.className = "quiz-row";
+    row.innerHTML = '<span class="q">' + (idx + 1) + ". " + item.text + '</span><input type="text" aria-label="Jawaban soal ' + (idx + 1) + '" placeholder="contoh: 11/12"><span class="fb"></span>';
+    box.appendChild(row);
+  });
+  document.getElementById("quizScore").classList.add("hidden");
+}
+document.getElementById("quizNew").addEventListener("click", newQuiz);
+document.getElementById("quizCheck").addEventListener("click", function(){
+  var inputs = document.querySelectorAll("#quizBox input");
+  var score = 0;
+  inputs.forEach(function(input, idx){
+    var fb = input.parentElement.querySelector(".fb");
+    var val = parseFracInput(input.value);
+    if (val && val[0] * quiz[idx].ans[1] === quiz[idx].ans[0] * val[1]){ score++; fb.textContent = "✓ Benar"; fb.className = "fb ok"; }
+    else { fb.textContent = "Jawaban: " + fracStr(quiz[idx].ans); fb.className = "fb no"; }
+  });
+  show("quizScore", score < 5).innerHTML = "<strong>Skor: " + score + " dari 5.</strong> " + (score === 5 ? "Bagus sekali, semua benar!" : "Periksa jawaban yang ditandai, lalu coba soal baru untuk berlatih lagi.");
+});
+newQuiz();
+// Simulasi diskon
+function renderDisc(){
+  var price = parseFloat(document.getElementById("discPrice").value);
+  var pct = parseInt(document.getElementById("discRange").value, 10);
+  document.getElementById("discLabel").textContent = pct + "%";
+  if (isNaN(price) || price < 0){ document.getElementById("discResult").textContent = "Masukkan harga awal yang valid."; return; }
+  var cut = price * pct / 100, pay = price - cut;
+  document.getElementById("discResult").innerHTML = "Potongan: <strong>" + money(cut) + "</strong> (" + pct + "%)<br>Harga yang dibayar: <strong>" + money(pay) + "</strong> (" + (100 - pct) + "% dari harga awal).";
+}
+document.getElementById("discPrice").addEventListener("input", renderDisc);
+document.getElementById("discRange").addEventListener("input", renderDisc);
+renderDisc();
+// Refleksi
+document.getElementById("reflectBtn").addEventListener("click", function(){
+  var boxes = document.querySelectorAll(".selfcheck");
+  var n = 0; boxes.forEach(function(b){ if (b.checked) n++; });
+  var msg = n === 4
+    ? "<strong>Semua tercentang.</strong> Lanjutkan ke materi berikutnya: Aritmetika Sosial. Tetap latih soal campuran supaya tidak lupa."
+    : "<strong>" + n + " dari 4 tercentang.</strong> Kembali ke bagian yang belum tercentang: Memahami untuk konsep, Mengaplikasi untuk latihan, lalu centang lagi.";
+  show("reflectResult").innerHTML = msg;
+});
+</script>
+</body>
+</html>
